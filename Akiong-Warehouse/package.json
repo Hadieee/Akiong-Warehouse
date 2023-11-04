@@ -1,0 +1,16 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "concurrently npm:watch:*",
+        "watch:vite": "vite",
+        "watch:artisan": "php artisan serve",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "concurrently": "^8.2.2",
+        "laravel-vite-plugin": "^0.8.0",
+        "vite": "^4.0.0"
+    }
+}
