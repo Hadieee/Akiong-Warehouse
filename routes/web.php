@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home', ['title' => 'Welcome to Akiong Warehouse']);
 });
+
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::post('/login/action', [
+    AuthController::class, 'loginAction'
+])->name('login.action');
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
+
+Route::post('/register/action', [
+    AuthController::class, 'registerAction'
+])->name('register.action');
+
+Route::get('/logout', [
+    AuthController::class, 'logout'
+])->name('logout');
+
 
 // Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', function () {
