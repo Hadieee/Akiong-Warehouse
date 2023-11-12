@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome', ['title' => 'Welcome to Akiong Warehouse']);
+    return view('home', ['title' => 'Welcome to Akiong Warehouse']);
 });
+
+// Route::middleware('auth')->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+// });
