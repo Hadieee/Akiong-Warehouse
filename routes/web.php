@@ -43,5 +43,27 @@ Route::get('/logout', [
 // Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
-    })->name('admin.dashboard');
+    })->name('admin.daspemasokhboard');
+    Route::get('/admin/barang', function () {
+        return view('admin.barang');
+    })->name('admin.barang');
+    Route::get('/admin/pemasok', function () {
+        return view('admin.pemasok');
+    })->name('admin.pemasok');
+    Route::get('/admin/kategori', function () {
+        return view('admin.kategori');
+    })->name('admin.kategori');
+
+    Route::get('/manager/dashboard', function () {
+        return view('manager.dashboard');
+    })->name('manager.daspemasokhboard');
+    Route::get('/manager/barang', function () {
+        return view('manager.barang');
+    })->name('manager.barang');
+    Route::get('/manager/pemasok', function () {
+        return view('manager.pemasok');
+    })->name('manager.pemasok');
+    Route::get('/manager/kategori', function () {
+        return view('manager.kategori');
+    })->name('manager.kategori');
 // });

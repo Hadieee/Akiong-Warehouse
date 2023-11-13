@@ -13,25 +13,15 @@
         class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-            <a href="#" class="flex items-center ps-2.5 mb-5">
+            <a href="dashboard" class="flex items-center ps-2.5 mb-5">
                 <img src="{{ asset('assets/storage-stacks.png') }}" class="h-6 me-3 sm:h-7" />
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Akiong
                     Warehouse</span>
             </a>
 
-            <!-- Your existing code with modifications -->
-            <ul class="font-medium space-y-10 flex-1">
-                <li></li> <!-- Empty li for spacing -->
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-
             <ul class="font-medium space-y-10 flex-1">
                 <li>
-                    <a href="#"
+                    <a href="kategori"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -44,7 +34,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="barang"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -57,7 +47,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="pemasok"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -69,11 +59,11 @@
                         <span class="flex-1 ms-3 whitespace-nowrap">Pemasok</span>
                     </a>
                 </li>
-                <li class="flex-10"></li> <!-- Add an empty li with flex-10 class for spacing -->
+                <li class="flex-10"></li>
             </ul>
 
             <ul class="font-medium space-y-32">
-                <li></li> <!-- Empty li for spacing -->
+                <li class="flex-10"></li>
                 <li>
                     <a href="#"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">

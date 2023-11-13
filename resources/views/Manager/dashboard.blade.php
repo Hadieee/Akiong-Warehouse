@@ -6,7 +6,7 @@
 @section('content')
     @include('components.sidebar')
     <div class="p-4 sm:ml-64">
-        <div class="grid grid-cols-3 gap-4 mb-2">
+        <div class="grid grid-cols-3 gap-4 mb-4">
             <div class="flex items-center justify-center h-24 rounded bg-gray-800">
                 <span class="text-white stamp mr-3 bg-indigo" style="border-radius: 8px;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-database" width="64"
@@ -73,8 +73,8 @@
                 <div class="flex-grow"></div> <!-- Menambahkan elemen flex-grow untuk memberikan ruang di sebelah kanan -->
             </div>
         </div>
-        <div class="flex items-center justify-center h-screen py-5 rounded bg-gray-800">
-            <div class="flex items-center justify-center rounded w-full h-full mx-12 bg-white">
+        <div class="flex items-center justify-center h-screen py-10 my-8 rounded bg-gray-800">
+            <div class="flex items-center justify-center rounded w-full h-full my-20 mx-12 bg-white">
                 <p class="text-2xl text-gray-500">
                     Selamat Datang,
                     Admin
