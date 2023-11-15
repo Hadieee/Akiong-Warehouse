@@ -1,6 +1,6 @@
 @extends('layouts.global')
 @section('title')
-    Dashboard - Admin
+    Data Barang - Admin
 @endsection
 
 @section('content')
@@ -11,17 +11,24 @@
                 <table class="w-full text-sm text-center">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
+                            <th class="py-2 px-4 border-b">No</th>
+                            <th class="py-2 px-4 border-b">ID Barang</th>
+                            <th class="py-2 px-4 border-b">ID Kategori</th>
+                            <th class="py-2 px-4 border-b">ID Pemasok</th>
                             <th class="py-2 px-4 border-b">Nama Barang</th>
-                            <th class="py-2 px-4 border-b">Warna</th>
-                            <th class="py-2 px-4 border-b">Jumlah</th>
+                            <th class="py-2 px-4 border-b">Stok Barang</th>
                             <th class="py-2 px-4 border-b">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($barang as $index => $item)
                         <tr>
-                            <td class="py-2 px-4 border-b">Celana Jeans</td>
-                            <td class="py-2 px-4 border-b">Abu-abu</td>
-                            <td class="py-2 px-4 border-b">12</td>
+                            <td class="py-2 px-4 border-b">{{ ++$index }}</td>
+                            <td class="py-2 px-4 border-b">{{ $item->id_barang }}</td>
+                            <td class="py-2 px-4 border-b">{{ $item->kategori_id }}</td>
+                            <td class="py-2 px-4 border-b">{{ $item->pemasok_id }}</td>
+                            <td class="py-2 px-4 border-b">{{ $item->nama_barang }}</td>
+                            <td class="py-2 px-4 border-b">{{ $item->stok_barang }}</td>
                             <td class="py-2 px-4 border-b">
                                 <button class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
                                     <i class="fas fa-edit"></i> Edit
@@ -31,19 +38,7 @@
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b">Baju Big Size</td>
-                            <td class="py-2 px-4 border-b">Biru</td>
-                            <td class="py-2 px-4 border-b">98</td>
-                            <td class="py-2 px-4 border-b">
-                                <button class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
-                                    <i class="fas fa-edit"></i> Edit
-                                </button>
-                                <button class="bg-red-500 text-white px-4 py-2 rounded-full ml-2 hover:bg-red-600">
-                                    <i class="fas fa-trash"></i> Hapus
-                                </button>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

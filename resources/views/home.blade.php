@@ -9,6 +9,4 @@
 @include('components.testimonial')
 @include('components.footer')
 
-@include('auth.login')
-@include('auth.register')
 @endsection

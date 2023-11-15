@@ -28,7 +28,7 @@ class AuthController extends Controller
         'password' => Hash::make($request->password),
         ]);
         session()->flash('success', 'Akun berhasil dibuat!');
-        return redirect('/register');
+        return redirect('/login');
         } else {
         session()->flash('error', 'Konfirmasi password anda salah!');
         return redirect('/register');
@@ -41,7 +41,7 @@ class AuthController extends Controller
             'password' => $request->password,
         ];
 
-        if ($data['username'] == 'admin' && $data['password'] == 'admin') {
+        if ($data['username'] == 'manager' && $data['password'] == 'manager') {
             return redirect('/manager/dashboard');
         }
 

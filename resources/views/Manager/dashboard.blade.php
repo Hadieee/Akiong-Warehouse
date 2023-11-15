@@ -77,7 +77,7 @@
             <div class="flex items-center justify-center rounded w-full h-full my-20 mx-12 bg-white">
                 <p class="text-2xl text-gray-500">
                     Selamat Datang,
-                    Admin
+                    Manager
                 </p>
             </div>
         </div>

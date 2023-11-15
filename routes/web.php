@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Models\Barang;
+use App\Models\Kategori;
+use App\Models\Pemasok;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,29 +44,41 @@ Route::get('/logout', [
 
 
 // Route::middleware('auth')->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.daspemasokhboard');
-    Route::get('/admin/barang', function () {
-        return view('admin.barang');
-    })->name('admin.barang');
-    Route::get('/admin/pemasok', function () {
-        return view('admin.pemasok');
-    })->name('admin.pemasok');
-    Route::get('/admin/kategori', function () {
-        return view('admin.kategori');
-    })->name('admin.kategori');
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->name('admin.daspemasokhboard');
+Route::get('/admin/barang', function () {
+    return view('admin.barang', [
+        'barang' => Barang::all(),
+    ]);
+})->name('admin.barang');
+Route::get('/admin/pemasok', function () {
+    return view('admin.pemasok', [
+        'pemasok' => Pemasok::all(),
+    ]);
+})->name('admin.pemasok');
+Route::get('/admin/kategori', function () {
+    return view('admin.kategori', [
+        'kategori' => Kategori::all(),
+    ]);
+})->name('admin.kategori');
 
-    Route::get('/manager/dashboard', function () {
-        return view('manager.dashboard');
-    })->name('manager.daspemasokhboard');
-    Route::get('/manager/barang', function () {
-        return view('manager.barang');
-    })->name('manager.barang');
-    Route::get('/manager/pemasok', function () {
-        return view('manager.pemasok');
-    })->name('manager.pemasok');
-    Route::get('/manager/kategori', function () {
-        return view('manager.kategori');
-    })->name('manager.kategori');
+Route::get('/manager/dashboard', function () {
+    return view('manager.dashboard');
+})->name('manager.daspemasokhboard');
+Route::get('/manager/barang', function () {
+    return view('manager.barang', [
+        'barang' => Barang::all(),
+    ]);
+})->name('manager.barang');
+Route::get('/manager/pemasok', function () {
+    return view('manager.pemasok', [
+        'pemasok' => Pemasok::all(),
+    ]);
+})->name('manager.pemasok');
+Route::get('/manager/kategori', function () {
+    return view('manager.kategori', [
+        'kategori' => Kategori::all()
+    ]);
+})->name('manager.kategori');
 // });
