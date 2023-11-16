@@ -13,7 +13,7 @@ class Kategori extends Model
     protected $table = 'kategoris';
     protected $fillable = ['id_kategori', 'nama_kategori'];
 
-    public function kategori(): HasMany
+    public function barang(): HasMany
     {
         return $this->HasMany(Barang::class);
     }

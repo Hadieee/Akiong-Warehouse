@@ -24,7 +24,7 @@
                     <div class="strong text-white ">
                         Data Kategori
                     </div>
-                    <div class="text-white text-2xl">0</div>
+                    <div class="text-white text-2xl">{{ \App\Models\Kategori::count() }}</div>
                 </div>
                 <div class="flex-grow"></div> <!-- Menambahkan elemen flex-grow untuk memberikan ruang di sebelah kanan -->
             </div>
@@ -46,7 +46,7 @@
                     <div class="strong text-white ">
                         Data Barang
                     </div>
-                    <div class="text-white text-2xl">0</div>
+                    <div class="text-white text-2xl">{{ \App\Models\Barang::count() }}</div>
                 </div>
                 <div class="flex-grow"></div>
             </div>
@@ -68,7 +68,7 @@
                     <div class="strong text-white ">
                         Data Pemasok
                     </div>
-                    <div class="text-white text-2xl">0</div>
+                    <div class="text-white text-2xl">{{ \App\Models\Pemasok::count() }}</div>
                 </div>
                 <div class="flex-grow"></div> <!-- Menambahkan elemen flex-grow untuk memberikan ruang di sebelah kanan -->
             </div>

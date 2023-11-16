@@ -1,10 +1,13 @@
 <?php
 
+use App\Models\Barang;
+use App\Models\Pemasok;
+use App\Models\Kategori;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Models\Barang;
-use App\Models\Kategori;
-use App\Models\Pemasok;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PemasokController;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +49,7 @@ Route::get('/logout', [
 // Route::middleware('auth')->group(function () {
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
-})->name('admin.daspemasokhboard');
+})->name('admin.dashboard');
 Route::get('/admin/barang', function () {
     return view('admin.barang', [
         'barang' => Barang::all(),
@@ -63,9 +66,12 @@ Route::get('/admin/kategori', function () {
     ]);
 })->name('admin.kategori');
 
+
+
+
 Route::get('/manager/dashboard', function () {
     return view('manager.dashboard');
-})->name('manager.daspemasokhboard');
+})->name('manager.dashboard');
 Route::get('/manager/barang', function () {
     return view('manager.barang', [
         'barang' => Barang::all(),
@@ -81,4 +87,28 @@ Route::get('/manager/kategori', function () {
         'kategori' => Kategori::all()
     ]);
 })->name('manager.kategori');
+
+Route::controller(KategoriController::class)->group(function () {
+    Route::get('/admin/kategori/tambah', 'tambah')->name('admin.addKategori');
+    Route::post('/admin/kategori/tambah/action', 'store')->name('admin.storeKategori');
+    Route::get('/admin/kategori/edit/{id}', 'edit')->name('admin.editKategori');
+    Route::post('/admin/kategori/edit/{id}/action', 'update')->name('admin.updateKategori');
+    Route::post('/admin/kategori/delete/{id}/action', 'delete')->name('admin.deleteKategori');
+});
+
+Route::controller(BarangController::class)->group(function () {
+    Route::get('/admin/barang/tambah', 'tambah')->name('admin.addBarang');
+    Route::post('/admin/barang/tambah/action', 'store')->name('admin.storeBarang');
+    Route::get('/admin/barang/edit/{id}', 'edit')->name('admin.editBarang');
+    Route::post('/admin/barang/edit/{id}/action', 'update')->name('admin.updateBarang');
+    Route::post('/admin/barang/delete/{id}/action', 'delete')->name('admin.deleteBarang');
+});
+
+Route::controller(PemasokController::class)->group(function () {
+    Route::get('/admin/pemasok/tambah', 'tambah')->name('admin.addPemasok');
+    Route::post('/admin/pemasok/tambah/action', 'store')->name('admin.storePemasok');
+    Route::get('/admin/pemasok/edit/{id}', 'edit')->name('admin.editPemasok');
+    Route::post('/admin/pemasok/edit/{id}/action', 'update')->name('admin.updatePemasok');
+    Route::post('/admin/pemasok/delete/{id}/action', 'delete')->name('admin.deletePemasok');
+});
 // });

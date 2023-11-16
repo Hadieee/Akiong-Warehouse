@@ -1,7 +1,7 @@
 @extends('layouts.global')
 
 @section('title')
-Register - myLoker
+Register - Akiong Warehouse
 @endsection
 
 @section('content')
