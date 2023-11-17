@@ -74,10 +74,12 @@
             </div>
         </div>
         <div class="flex items-center justify-center h-screen py-10 my-8 rounded bg-gray-800">
-            <div class="flex items-center justify-center rounded w-full h-full my-20 mx-12 bg-white">
-                <p class="text-2xl text-gray-500">
-                    Selamat Datang,
-                    Admin
+            <div class="flex flex-col items-center justify-center rounded w-full h-full my-20 mx-12 bg-white">
+                <p class="text-5xl text-gray-500 mb-7">
+                    Selamat Datang
+                </p>
+                <p class="text-5xl text-gray-500">
+                    Admin {{ Auth::user()->name }}
                 </p>
             </div>
         </div>

@@ -17,8 +17,8 @@ class BarangFactory extends Factory
     {
         return [
             'id_barang' => $this->faker->unique()->numberBetween(1000, 9999),
-            'pemasok_id' => Pemasok::pluck('id_pemasok')->random(),
-            'kategori_id' => Kategori::pluck('id_kategori')->random(),
+            'pemasok_id' => Pemasok::all()->random()->id,
+            'kategori_id' => Kategori::all()->random()->id,
             'nama_barang' => $this->faker->randomElement([
                 'Buku Tulis Sinar Dunia',
                 'Pensil 2B Faber Castell',
