@@ -10,9 +10,14 @@ class CheckRole
 {
     public function handle(Request $request, Closure $next, ...$roles)
     {
-        // Memeriksa apakah pengguna memiliki peran yang diperlukan
+        // Memeriksa apakah pengguna terautentikasi dan memiliki peran yang diperlukan
         if ($request->user() && in_array($request->user()->role, $roles)) {
             return $next($request);
+        }
+
+        // Jika pengguna tidak terautentikasi, arahkan ke halaman login
+        if (!$request->user()) {
+            return Redirect::route('login')->with('error', 'Silakan login untuk mengakses halaman ini.');
         }
 
         // Jika peran tidak sesuai, arahkan ke halaman sebelumnya

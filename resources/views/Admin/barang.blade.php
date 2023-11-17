@@ -29,57 +29,59 @@
                 </div>
             @endif
 
-                <div class="h-full w-full m-4 p-8 bg-white rounded-lg drop-shadow-md">
-                    <div class="flex flex-col items-center rounded w-full bg-white">
-                        <hr><br>
-                        <div class="w-full h-auto flex justify-end pr-5 mb-4">
-                            <a href="{{ route('admin.addBarang') }}"
-                                class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
-                                <i class="fas fa-plus mr-2"></i> Tambah
-                            </a>
-                        </div>
-                        <table class="w-full text-sm text-center">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
-                                <tr>
-                                    <th class="py-2 px-4 border-b">No</th>
-                                    <th class="py-2 px-4 border-b">ID Barang</th>
-                                    <th class="py-2 px-4 border-b">Kategori Barang</th>
-                                    <th class="py-2 px-4 border-b">Pemasok Barang</th>
-                                    <th class="py-2 px-4 border-b">Nama Barang</th>
-                                    <th class="py-2 px-4 border-b">Stok Barang</th>
-                                    <th class="py-2 px-4 border-b">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($barang['data'] as $item)
-                                    <tr>
-                                        <td class="py-2 px-4 border-b">{{ ++$item }}</td>
-                                        <td class="py-2 px-4 border-b">{{ $item['id_barang'] }}</td>
-                                        <td class="py-2 px-4 border-b">{{ $item['kategori']['nama_kategori'] }}</td>
-                                        <td class="py-2 px-4 border-b">{{ $item['pemasok']['nama_pemasok'] }}</td>
-                                        <td class="py-2 px-4 border-b">{{ $item['nama_barang'] }}</td>
-                                        <td class="py-2 px-4 border-b">{{ $item['stok_barang'] }}</td>
-                                        <td class="py-2 px-4 border-b">
-                                            <a href="{{ route('admin.editBarang', $item->id) }}"
-                                                class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
-                                                <i class="fas fa-edit"></i> Edit
-                                            </a>
-                                            <form action="{{ route('admin.deleteBarang', $item->id) }}" method="post">
-                                                @csrf
-                                                <button type="submit"
-                                                    class="bg-red-500 text-white px-4 py-2 rounded-full mb-3 mt-2 hover:bg-red-600"
-                                                    onclick="return confirm('Are you sure want to delete?')">
-                                                    <i class="fas fa-trash"></i> Hapus
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+            <div class="h-full w-full m-4 p-8 bg-white rounded-lg drop-shadow-md">
+                <div class="flex flex-col items-center rounded w-full bg-white">
+                    <hr><br>
+                    <div class="w-full h-auto flex justify-end pr-5 mb-4">
+                        <a href="{{ route('admin.addBarang') }}"
+                            class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
+                            <i class="fas fa-plus mr-2"></i> Tambah
+                        </a>
                     </div>
+                    <table class="w-full text-sm text-center">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                            <tr>
+                                <th class="py-2 px-4 border-b">No</th>
+                                <th class="py-2 px-4 border-b">ID Barang</th>
+                                <th class="py-2 px-4 border-b">Kategori Barang</th>
+                                <th class="py-2 px-4 border-b">Pemasok Barang</th>
+                                <th class="py-2 px-4 border-b">Nama Barang</th>
+                                <th class="py-2 px-4 border-b">Stok Barang</th>
+                                <th class="py-2 px-4 border-b">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php $i=1 @endphp
+                            @foreach ($barang['data'] ?? [] as $item)
+                                <tr>
+                                    <td class="py-2 px-4 border-b">{{ $i }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['id_barang'] }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['kategori']['nama_kategori'] }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['pemasok']['nama_pemasok'] }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['nama_barang'] }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['stok_barang'] }}</td>
+                                    <td class="py-2 px-4 border-b">
+                                        <div class="flex items-center justify-center space-x-4">
+                                        <a href="{{ route('admin.editBarang', $item->id) }}"
+                                            class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                        <form action="{{ route('admin.deleteBarang', $item->id) }}" method="post">
+                                            @csrf
+                                            <button type="submit"
+                                                class="bg-red-500 text-white px-4 py-2 rounded-full mb-3 mt-2 hover:bg-red-600"
+                                                onclick="return confirm('Are you sure want to delete?')">
+                                                <i class="fas fa-trash"></i> Hapus
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

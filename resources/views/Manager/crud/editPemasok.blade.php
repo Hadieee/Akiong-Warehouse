@@ -9,9 +9,9 @@
         <img class="w-full h-full object-cover" src="{{ asset('assets/bg.jpg') }}" alt="Background Image">
         <div class="flex items-center justify-center h-full absolute inset-0">
             <div class="w-full max-w-sm p-4 border rounded-lg shadow sm:p-6 md:p-8 bg-gray-800 border-gray-700">
-                <form class="space-y-6" action="{{ route('admin.updatePemasok', $pemasoks->id) }}" method="post">
+                <form class="space-y-6" action="{{ route('manager.updatePemasok', $pemasoks->id) }}" method="post">
                     @csrf
-                    <a href="/admin/pemasok">
+                    <a href="/manager/pemasok">
                         <i class="fas fa-arrow-left scale-150 text-white mr-2 hover:text-gray-200"></i>
                     </a>
                     <h5 class="flex text-xl font-medium text-gray-900 justify-center dark:text-white">Edit Data

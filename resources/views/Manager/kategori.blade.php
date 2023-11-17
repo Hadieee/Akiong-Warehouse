@@ -33,10 +33,16 @@
                 <div class="flex flex-col items-center rounded w-full bg-white">
                     <hr><br>
                     <div class="w-full h-auto flex justify-end pr-5 mb-4">
-                        <a href="{{ route('admin.addKategori') }}"
-                            class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
-                            <i class="fas fa-print mr-2"></i> Print
-                        </a>
+                        <div class="flex space-x-4">
+                            <a href="{{ route('manager.addKategori') }}"
+                                class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
+                                <i class="fas fa-plus mr-2"></i> Tambah
+                            </a>
+                            <a href=""
+                                class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
+                                <i class="fas fa-print mr-2"></i> Print
+                            </a>
+                        </div>
                     </div>
                     <table class="w-full text-sm text-center">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-100">
@@ -44,6 +50,7 @@
                                 <th class="py-2 px-4 border-b">No</th>
                                 <th class="py-2 px-4 border-b">ID Kategori</th>
                                 <th class="py-2 px-4 border-b">Nama Kategori</th>
+                                <th class="py-2 px-4 border-b">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,6 +59,21 @@
                                     <td class="py-2 px-4 border-b">{{ $item->id }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item->id_kategori }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item->nama_kategori }}</td>
+                                    <td class="py-2 px-4 border-b">
+                                        <div class="flex items-center justify-center space-x-4">
+                                            <a href="{{ route('manager.editKategori', $item->id) }}"
+                                                class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <form action="{{ route('manager.deleteKategori', $item->id) }}" method="post">
+                                                @csrf
+                                                <button type="submit"
+                                                    class="bg-red-500 text-white px-4 py-2 rounded-full mb-3 mt-2 hover:bg-red-600"
+                                                    onclick="return confirm('Are you sure want to delete?')">
+                                                    <i class="fas fa-trash"></i> Hapus
+                                                </button>
+                                            </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

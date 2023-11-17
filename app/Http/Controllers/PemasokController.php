@@ -11,7 +11,7 @@ class PemasokController extends Controller
 {
     public function tambah()
     {
-        return view('admin.crud.addPemasok', [
+        return view('manager.crud.addPemasok', [
             'pemasoks' => Pemasok::all()
         ]);
     }
@@ -28,12 +28,12 @@ class PemasokController extends Controller
         Pemasok::create($validateData);
 
         session()->flash('success', 'Data Pemasok Berhasil Ditambah!');
-        return redirect()->route('admin.pemasok');
+        return redirect()->route('manager.pemasok');
     }
 
     public function edit($id)
     {
-        return view('admin.crud.editPemasok', [
+        return view('manager.crud.editPemasok', [
             'pemasoks' => Pemasok::all()->where('id', $id)->first(),
             'barangs' => Barang::all(),
         ]);
@@ -57,7 +57,7 @@ class PemasokController extends Controller
         $pemasok->save();
 
         session()->flash('success', 'Data Pemasok Berhasil Diubah!');
-        return redirect()->route('admin.pemasok');
+        return redirect()->route('manager.pemasok');
     }
 
 
@@ -71,6 +71,6 @@ class PemasokController extends Controller
         $pemasok->delete();
 
         session()->flash('success', 'Data Pemasok Berhasil Dihapus!');
-        return redirect()->route('admin.pemasok');
+        return redirect()->route('manager.pemasok');
     }
 }

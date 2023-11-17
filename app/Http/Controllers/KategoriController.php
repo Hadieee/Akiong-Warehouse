@@ -13,7 +13,7 @@ class KategoriController extends Controller
     //
     public function tambah()
     {
-        return view('admin.crud.addKategori', [
+        return view('manager.crud.addKategori', [
             'kategoris' => Kategori::all()
         ]);
     }
@@ -29,12 +29,12 @@ class KategoriController extends Controller
         Kategori::create($validateData);
 
         session()->flash('success', 'Data Kategori Berhasil Ditambah!');
-        return redirect()->route('admin.kategori');
+        return redirect()->route('manager.kategori');
     }
 
     public function edit($id)
     {
-        return view('admin.crud.editKategori', [
+        return view('manager.crud.editKategori', [
             'kategoris' => Kategori::all()->where('id', $id)->first(),
             'barangs' => Barang::all()
         ]);
@@ -56,7 +56,7 @@ class KategoriController extends Controller
         $kategori->save();
 
         session()->flash('success', 'Data Kategori Berhasil Diubah!');
-        return redirect()->route('admin.kategori');
+        return redirect()->route('manager.kategori');
     }
 
 
@@ -70,6 +70,6 @@ class KategoriController extends Controller
         $kategori->delete();
 
         session()->flash('success', 'Data Kategori Berhasil Dihapus!');
-        return redirect()->route('admin.kategori');
+        return redirect()->route('manager.kategori');
     }
 }

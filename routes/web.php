@@ -54,6 +54,7 @@ Route::middleware('auth', 'checkRole:admin')->group(function () {
         return view('admin.barang', [
             'barang' => Barang::all(),
             'kategori' => Kategori::all(),
+            'pemasok' => Pemasok::all(),
         ]);
     })->name('admin.barang');
     Route::get('/admin/pemasok', function () {
@@ -67,28 +68,12 @@ Route::middleware('auth', 'checkRole:admin')->group(function () {
         ]);
     })->name('admin.kategori');
 
-    Route::controller(KategoriController::class)->group(function () {
-        Route::get('/admin/kategori/tambah', 'tambah')->name('admin.addKategori');
-        Route::post('/admin/kategori/tambah/action', 'store')->name('admin.storeKategori');
-        Route::get('/admin/kategori/edit/{id}', 'edit')->name('admin.editKategori');
-        Route::post('/admin/kategori/edit/{id}/action', 'update')->name('admin.updateKategori');
-        Route::post('/admin/kategori/delete/{id}/action', 'delete')->name('admin.deleteKategori');
-    });
-
     Route::controller(BarangController::class)->group(function () {
         Route::get('/admin/barang/tambah', 'tambah')->name('admin.addBarang');
         Route::post('/admin/barang/tambah/action', 'store')->name('admin.storeBarang');
         Route::get('/admin/barang/edit/{id}', 'edit')->name('admin.editBarang');
         Route::post('/admin/barang/edit/{id}/action', 'update')->name('admin.updateBarang');
         Route::post('/admin/barang/delete/{id}/action', 'delete')->name('admin.deleteBarang');
-    });
-
-    Route::controller(PemasokController::class)->group(function () {
-        Route::get('/admin/pemasok/tambah', 'tambah')->name('admin.addPemasok');
-        Route::post('/admin/pemasok/tambah/action', 'store')->name('admin.storePemasok');
-        Route::get('/admin/pemasok/edit/{id}', 'edit')->name('admin.editPemasok');
-        Route::post('/admin/pemasok/edit/{id}/action', 'update')->name('admin.updatePemasok');
-        Route::post('/admin/pemasok/delete/{id}/action', 'delete')->name('admin.deletePemasok');
     });
 });
 
@@ -100,6 +85,8 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
     Route::get('/manager/barang', function () {
         return view('manager.barang', [
             'barang' => Barang::all(),
+            'kategori' => Kategori::all(),
+            'pemasok' => Pemasok::all(),
         ]);
     })->name('manager.barang');
     Route::get('/manager/pemasok', function () {
@@ -112,4 +99,20 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
             'kategori' => Kategori::all()
         ]);
     })->name('manager.kategori');
+
+    Route::controller(KategoriController::class)->group(function () {
+        Route::get('/manager/kategori/tambah', 'tambah')->name('manager.Kategori');
+        Route::post('/manager/kategori/tambah/action', 'store')->name('manager.storeKategori');
+        Route::get('/manager/kategori/edit/{id}', 'edit')->name('manager.editKategori');
+        Route::post('/manager/kategori/edit/{id}/action', 'update')->name('manager.updateKategori');
+        Route::post('/manager/kategori/delete/{id}/action', 'delete')->name('manager.deleteKategori');
+    });
+
+    Route::controller(PemasokController::class)->group(function () {
+        Route::get('/manager/pemasok/tambah', 'tambah')->name('manager.addPemasok');
+        Route::post('/manager/pemasok/tambah/action', 'store')->name('manager.storePemasok');
+        Route::get('/manager/pemasok/edit/{id}', 'edit')->name('manager.editPemasok');
+        Route::post('/manager/pemasok/edit/{id}/action', 'update')->name('manager.updatePemasok');
+        Route::post('/manager/pemasok/delete/{id}/action', 'delete')->name('manager.deletePemasok');
+    });
 });
