@@ -14,8 +14,13 @@ return new class extends Migration
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
             $table->string('id_barang')->unique();
-            $table->foreignId('pemasok_id')->constrained();
-            $table->foreignId('kategori_id')->constrained();
+            $table->foreignId('pemasok_id')->constrained(
+                table:'pemasoks', indexName:'id_pemasok'
+            );
+            $table->foreignId('kategori_id')->constrained(
+                table:'kategoris', indexName:'id_kategori'
+            );
+            // $table->foreign('id_kategori')->references('id_kategori')->on('kategoris')->constrained();
             $table->string('nama_barang');
             $table->integer('stok_barang');
             $table->timestamps();

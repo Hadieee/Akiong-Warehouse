@@ -53,6 +53,7 @@ Route::middleware('auth', 'checkRole:admin')->group(function () {
     Route::get('/admin/barang', function () {
         return view('admin.barang', [
             'barang' => Barang::all(),
+            'kategori' => Kategori::all(),
         ]);
     })->name('admin.barang');
     Route::get('/admin/pemasok', function () {

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Pemasok;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Kategori;
-use App\Models\Pemasok;
+use Illuminate\Support\Facades\Http;
 
 class BarangController extends Controller
 {
@@ -77,5 +78,14 @@ class BarangController extends Controller
 
         session()->flash('success', 'Data Barang Berhasil Dihapus!');
         return redirect()->route('admin.barang');
+    }
+
+    public function index()
+    {
+        $endpoint = env('BASE_ENV') . '/api/admin/data/barang';
+        $data = Http::get($endpoint);
+        return view('admin.barang', [
+            'barang' => $data
+        ]);
     }
 }
