@@ -56,18 +56,20 @@
                                     <td class="py-2 px-4 border-b">{{ $item->nama_pemasok }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item->no_telepon }}</td>
                                     <td class="py-2 px-4 border-b">
-                                        <a href="{{ route('admin.editPemasok', $item->id) }}"
-                                            class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
-                                            <i class="fas fa-edit"></i> Edit
-                                        </a>
-                                        <form action="{{ route('admin.deletePemasok', $item->id) }}" method="post">
-                                            @csrf
-                                            <button type="submit"
-                                                class="bg-red-500 text-white px-4 py-2 rounded-full mb-3 mt-2 hover:bg-red-600"
-                                                onclick="return confirm('Are you sure want to delete?')">
-                                                <i class="fas fa-trash"></i> Hapus
-                                            </button>
-                                        </form>
+                                        <div class="flex items-center justify-center space-x-2">
+                                            <a href="{{ route('admin.editPemasok', $item->id) }}"
+                                                class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </a>
+                                            <form action="{{ route('admin.deletePemasok', $item->id) }}" method="post">
+                                                @csrf
+                                                <button type="submit"
+                                                    class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600"
+                                                    onclick="return confirm('Are you sure want to delete?')">
+                                                    <i class="fas fa-trash"></i> Hapus
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

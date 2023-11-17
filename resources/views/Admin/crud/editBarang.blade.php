@@ -14,25 +14,25 @@
                     <a href="/admin/barang">
                         <i class="fas fa-arrow-left scale-150 text-white mr-2 hover:text-gray-200"></i>
                     </a>
-                    <h5 class="flex text-xl font-medium text-gray-900 justify-center dark:text-white">Edit Data
+                    <h5 class="flex text-xl font-medium text-white justify-center">Edit Data
                         Barang
                     </h5>
                     <div>
-                        <label for="id_barang" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ID
+                        <label for="id_barang" class="block mb-2 text-sm font-medium text-white">ID
                             Barang</label>
                         <input type="text" name="id_barang"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             placeholder="id barang..." value="{{ $barangs->id_barang }}" required>
                     </div>
                     <div>
-                        <label for="nama_barang" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
+                        <label for="nama_barang" class="block mb-2 text-sm font-medium text-white">Nama
                             Barang</label>
                         <input type="text" name="nama_barang" placeholder="nama barang..."
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             value="{{ $barangs->nama_barang }}" required>
                     </div>
                     <div>
-                        <label for="stok_barang" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stok
+                        <label for="stok_barang" class="block mb-2 text-sm font-medium text-white">Stok
                             Barang</label>
                         <input type="number" name="stok_barang" placeholder="stok barang..."
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -40,7 +40,7 @@
                     </div>
                     <div>
                         <label for="kategori_id"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori Barang</label>
+                            class="block mb-2 text-sm font-medium text-white">Kategori Barang</label>
                         <select name="kategori_id"
                             class="w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                             <option value="" disabled selected>Kategori Barang...</option>
@@ -52,7 +52,7 @@
                         </select>
                     </div>
                     <div>
-                        <label for="pemasok_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pemasok
+                        <label for="pemasok_id" class="block mb-2 text-sm font-medium text-white">Pemasok
                             Barang</label>
                         <select name="pemasok_id"
                             class="w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
