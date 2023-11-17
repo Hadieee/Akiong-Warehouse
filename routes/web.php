@@ -101,7 +101,7 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
     })->name('manager.kategori');
 
     Route::controller(KategoriController::class)->group(function () {
-        Route::get('/manager/kategori/tambah', 'tambah')->name('manager.Kategori');
+        Route::get('/manager/kategori/tambah', 'tambah')->name('manager.addKategori');
         Route::post('/manager/kategori/tambah/action', 'store')->name('manager.storeKategori');
         Route::get('/manager/kategori/edit/{id}', 'edit')->name('manager.editKategori');
         Route::post('/manager/kategori/edit/{id}/action', 'update')->name('manager.updateKategori');

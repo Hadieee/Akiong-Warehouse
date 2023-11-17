@@ -34,8 +34,7 @@
                     <hr><br>
                     <div class="w-full h-auto flex justify-end pr-5 mb-4">
                         <div class="flex space-x-4">
-                            <a href="{{ route('manager.addKategori') }}"
-                                class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
+                            <a href="{{ route('manager.addKategori') }}" class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
                                 <i class="fas fa-plus mr-2"></i> Tambah
                             </a>
                             <a href=""
