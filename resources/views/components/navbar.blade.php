@@ -23,7 +23,7 @@
         </li>
     </ul>
     <a href="{{ route('login') }}"
-        class="group relative bg-blue-700 px-8 py-4 w-36 text-white rounded-lg font-bold flex justify-center gap-4 hover:bg-blue-800 transition ease-in">
+        class="group relative bg-blue-700 px-3 py-3 w-36 text-white rounded-lg font-bold flex justify-center gap-4 hover:bg-blue-800 transition ease-in">
         Login
     </a>
 </nav>

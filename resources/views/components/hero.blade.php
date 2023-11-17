@@ -8,7 +8,7 @@
 
         <div class="my-10">
             <a href="{{ route('register') }}"
-                class="group relative bg-blue-700 px-8 py-4 w-36 rounded-lg font-bold hover:bg-blue-800 transition ease-in mx-auto">
+                class="group relative bg-blue-700 px-10 py-4 w-36 rounded-lg font-bold hover:bg-blue-800 transition ease-in mx-auto">
                 Sign Up
             </a>
         </div>

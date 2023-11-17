@@ -1,6 +1,5 @@
 
-<!-- Section: Keunggulan -->
-<section id="benefit" class="py-16 bg-gray-200">
+<section id="benefit" class="py-16 bg-gray-100">
     <div class="container mx-auto">
         <h2 class="text-3xl font-bold mb-10 text-center">Keunggulan Menggunakan Akiong Warehouse</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">

@@ -8,25 +8,6 @@
     <div class="relative">
         <img class="w-full h-full object-cover" src="{{ asset('assets/bg.jpg') }}" alt="Background Image">
         <div class="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-gray-200">
-            @if (session('error'))
-                <div class="w-full relative mb-6">
-                    <div class="p-2 rounded-sm bg-red-100 ring-1 ring-red-500">
-                        <p class="text-red-500">
-                            {{ session('error') }}
-                        </p>
-                    </div>
-                </div>
-            @endif
-            @if (session('success'))
-                <div class="w-full relative mb-6">
-                    <div class="p-2 rounded-sm bg-green-100 ring-1 ring-green-500">
-                        <p class="text-green-500">
-                            {{ session('success') }}
-                        </p>
-                    </div>
-                </div>
-            @endif
-
             <form action="{{ route('login.action') }}" method="post" class="w-full flex flex-col items-start">
                 @csrf
                 <div
@@ -41,6 +22,27 @@
                         <p class="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">
                             Welcome back!
                         </p>
+
+                        <div class="mt-6">
+                            @if (session('error'))
+                        <div class="w-full relative mb-6">
+                            <div class="p-2 rounded-sm bg-red-100 ring-1 ring-red-500">
+                                <p class="text-red-500">
+                                    {{ session('error') }}
+                                </p>
+                            </div>
+                        </div>
+                    @endif
+                    @if (session('success'))
+                        <div class="w-full relative mb-6">
+                            <div class="p-2 rounded-sm bg-green-100 ring-1 ring-green-500">
+                                <p class="text-green-500">
+                                    {{ session('success') }}
+                                </p>
+                            </div>
+                        </div>
+                    @endif
+                        </div>
 
                         <div class="mt-4">
                             <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Username</label>
@@ -61,13 +63,12 @@
                                 <option value="" disabled selected>Role</option>
                                 <option value="Manager">Manager</option>
                                 <option value="Admin">Admin</option>
-                                <!-- Tambahkan opsi sesuai dengan kebutuhan -->
                             </select>
                         </div>
 
                         <div class="mt-6">
                             <button type="submit"
-                                class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+                                class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-800 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
                                 Sign In
                             </button>
                         </div>

@@ -5,8 +5,8 @@
 
 @section('content')
     @include('components.sidebar')
-    <div class="p-4 sm:ml-64">
-        <div class="grid grid-cols-3 gap-4 mb-4">
+    <div class="p-4 sm:ml-64 bg-gray-700 ">
+        <div class="grid grid-cols-3 gap-4 mb-4 ">
             <div class="flex items-center justify-center h-24 rounded bg-gray-800">
                 <span class="text-white stamp mr-3 bg-indigo" style="border-radius: 8px;">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-database" width="64"

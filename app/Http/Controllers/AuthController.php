@@ -17,26 +17,22 @@ class AuthController extends Controller
     }
 
     public function registerAction(Request $request)
-    {
-        if ($request->password == $request->confirm_password) {
-            $usernameExist = User::where("username", $request->username)->first();
-            if ($usernameExist) {
-                session()->flash('error', 'Username sudah digunakan!');
-                return redirect('/register');
-            }
-            User::create([
-                'name' => $request->name,
-                'username' => $request->username,
-                'password' => Hash::make($request->password),
-                'role' => $request->role,
-            ]);
-            session()->flash('success', 'Akun berhasil dibuat!');
-            return redirect('/login');
-        } else {
-            session()->flash('error', 'Konfirmasi password anda salah!');
-            return redirect('/register');
-        }
+{
+    if (empty($request->name) || empty($request->username) || empty($request->password) || empty($request->role)) {
+        session()->flash('error', '*Semua data harus diisi');
+        return redirect('/register');
     }
+
+    User::create([
+        'name' => $request->name,
+        'username' => $request->username,
+        'password' => Hash::make($request->password),
+        'role' => $request->role,
+    ]);
+
+    session()->flash('success', 'Akun berhasil dibuat!');
+    return redirect('/login');
+}
 
     public function loginAction(Request $request)
     {

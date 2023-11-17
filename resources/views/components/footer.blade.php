@@ -22,10 +22,10 @@
           </div>
           <div class="flex-row flex justify-between max-[991px]:items-center max-[767px]:flex-col max-[767px]:items-start max-[479px]:flex-col-reverse">
             <div class="font-semibold max-[991px]:ml-0 max-[991px]:mr-0 max-[479px]:mb-4 max-[991px]:py-1 text-center sm:text-center">
-              <a href="#about" class="inline-block font-normal text-[#636262] transition hover:text-[#d6a701] sm:pr-6 lg:pr-12 py-1.5 sm:py-2 pl-0 pr-6">Tentang Kami</a>
-              <a href="#benefit" class="inline-block font-normal text-[#636262] transition hover:text-[#d6a701] sm:pr-6 lg:pr-12 py-1.5 sm:py-2 pl-0 pr-6">Keunggulan</a>
-              <a href="#fitur" class="inline-block font-normal text-[#636262] transition hover:text-[#d6a701] sm:pr-6 lg:pr-12 py-1.5 sm:py-2 pl-0 pr-6">Fitur-Fitur</a>
-              <a href="#testi" class="inline-block font-normal text-[#636262] transition hover:text-[#d6a701] sm:pr-6 lg:pr-12 py-1.5 sm:py-2 pl-0 pr-6">Tetimonial</a>
+              <a href="#about" class="inline-block font-normal text-[#636262] transition hover:text-[#013dd6] sm:pr-6 lg:pr-12 py-1.5 sm:py-2 pl-0 pr-6">Tentang Kami</a>
+              <a href="#benefit" class="inline-block font-normal text-[#636262] transition hover:text-[#013dd6] sm:pr-6 lg:pr-12 py-1.5 sm:py-2 pl-0 pr-6">Keunggulan</a>
+              <a href="#fitur" class="inline-block font-normal text-[#636262] transition hover:text-[#013dd6] sm:pr-6 lg:pr-12 py-1.5 sm:py-2 pl-0 pr-6">Fitur-Fitur</a>
+              <a href="#testi" class="inline-block font-normal text-[#636262] transition hover:text-[#013dd6] sm:pr-6 lg:pr-12 py-1.5 sm:py-2 pl-0 pr-6">Tetimonial</a>
             </div>
             <div class="max-[991px]:flex-none">
               <p class="text-[#636262] max-[479px]:text-sm">© Copyright 2023. All rights reserved.</p>
