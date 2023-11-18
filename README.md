@@ -25,17 +25,15 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<details>
   <summary>Table of Contents</summary>
 <ol>
-    <li><a href="introduction">Introduction</a></li>
-    <li><a href="built-with">Built With</a></li>
-    <li><a href="getting-started">Getting Started</a></li>
-    <li><a href="job-desk">Job Desk</a></li>
-    <li><a href="features">Features</a></li>
-    <li><a href="documentation">Documentation</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#job-desk">Job Desk</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#documentation">Documentation</a></li>
 </ol>
-</details>
 
 <a name="introduction"></a>
 ## Introduction
