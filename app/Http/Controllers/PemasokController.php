@@ -73,4 +73,27 @@ class PemasokController extends Controller
         session()->flash('success', 'Data Pemasok Berhasil Dihapus!');
         return redirect()->route('manager.pemasok');
     }
+
+    public function download_excel()
+    {
+        // Retrieve data from the database
+        $pemasoks = Pemasok::all();
+
+        // Generate Excel content
+        $content = "ID pemasok\tNama Pemasok\tNomor Telepon Pemasok\n";
+
+        foreach ($pemasoks as $pemasok) {
+            $content .= "{$pemasok->id_pemasok}\t{$pemasok->nama_pemasok}\t{$pemasok->no_telepon}\n";
+        }
+
+        // Set headers for download
+        $headers = [
+            'Content-type' => 'application/vnd.ms-excel',
+            'Content-Disposition' => 'attachment; filename=pemasok_data.xls',
+            'Pragma' => 'no-cache',
+            'Expires' => '0',
+        ];
+        // Output content to the browser
+        return response()->make($content, 200, $headers);
+    }
 }

@@ -12,14 +12,15 @@ class Pemasok extends Model
 
     protected $table = 'pemasoks';
     protected $fillable = ['id_pemasok', 'nama_pemasok', 'no_telepon'];
+    protected $appends = ['total_barang'];
 
     public function barang(): HasMany
     {
-        return $this->HasMany(Barang::class);
+        return $this->hasMany(Barang::class);
     }
 
-    public function getTotalPemasokAttribute()
+    public function getTotalBarangAttribute()
     {
-        return $this->pemasok->count();
+        return $this->barang->count();
     }
 }

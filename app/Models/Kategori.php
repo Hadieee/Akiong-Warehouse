@@ -12,14 +12,15 @@ class Kategori extends Model
 
     protected $table = 'kategoris';
     protected $fillable = ['id_kategori', 'nama_kategori'];
+    protected $appends = ['total_barang'];
 
     public function barang(): HasMany
     {
-        return $this->HasMany(Barang::class);
+        return $this->hasMany(Barang::class);
     }
 
-    public function getTotalKategoriAttribute()
+    public function getTotalBarangAttribute()
     {
-        return $this->kategori->count();
+        return $this->barang->count();
     }
 }

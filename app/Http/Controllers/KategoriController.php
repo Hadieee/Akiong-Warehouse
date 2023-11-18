@@ -6,7 +6,6 @@ use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
-use App\Models\Pemasok;
 
 class KategoriController extends Controller
 {
@@ -71,5 +70,35 @@ class KategoriController extends Controller
 
         session()->flash('success', 'Data Kategori Berhasil Dihapus!');
         return redirect()->route('manager.kategori');
+    }
+
+    public function index()
+    {
+        $kategori = Kategori::withCount('kategori')->get();
+
+        return view('manager.kategori', compact('kategori'));
+    }
+
+    public function download_excel()
+    {
+        // Retrieve data from the database
+        $kategoris = Kategori::all();
+
+        // Generate Excel content
+        $content = "ID kategori\tNama kategori\n";
+
+        foreach ($kategoris as $kategori) {
+            $content .= "{$kategori->id_kategori}\t{$kategori->nama_kategori}\n";
+        }
+
+        // Set headers for download
+        $headers = [
+            'Content-type' => 'application/vnd.ms-excel',
+            'Content-Disposition' => 'attachment; filename=kategori_data.xls',
+            'Pragma' => 'no-cache',
+            'Expires' => '0',
+        ];
+        // Output content to the browser
+        return response()->make($content, 200, $headers);
     }
 }

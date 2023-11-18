@@ -88,4 +88,27 @@ class BarangController extends Controller
             'barang' => $data
         ]);
     }
+
+    public function download_excel()
+    {
+        // Retrieve data from the database
+        $barangs = Barang::all();
+
+        // Generate Excel content
+        $content = "ID barang\tKategori barang\tPemasok barang\tNama barang\tStok barang\n";
+
+        foreach ($barangs as $barang) {
+            $content .= "{$barang->id_barang}\t{$barang->kategori->nama_kategori}\t{$barang->pemasok->nama_pemasok}\t{$barang->nama_barang}\t{$barang->stok_barang}\n";
+        }
+
+        // Set headers for download
+        $headers = [
+            'Content-type' => 'application/vnd.ms-excel',
+            'Content-Disposition' => 'attachment; filename=barang_data.xls',
+            'Pragma' => 'no-cache',
+            'Expires' => '0',
+        ];
+        // Output content to the browser
+        return response()->make($content, 200, $headers);
+    }
 }

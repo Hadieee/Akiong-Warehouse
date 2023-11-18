@@ -38,7 +38,7 @@
                                 class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
                                 <i class="fas fa-plus mr-2"></i> Tambah
                             </a>
-                            <a href=""
+                            <a href="{{ route('manager.downloadDataPemasok') }}"
                                 class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
                                 <i class="fas fa-print mr-2"></i> Print
                             </a>
@@ -50,6 +50,7 @@
                                 <th class="py-2 px-4 border-b">ID</th>
                                 <th class="py-2 px-4 border-b">ID Pemasok</th>
                                 <th class="py-2 px-4 border-b">Nama Pemasok</th>
+                                <th class="py-2 px-4 border-b">Jumlah Barang Pemasok</th>
                                 <th class="py-2 px-4 border-b">Nomor Telepon</th>
                                 <th class="py-2 px-4 border-b">Aksi</th>
                             </tr>
@@ -60,6 +61,7 @@
                                     <td class="py-2 px-4 border-b">{{ ++$index }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item->id_pemasok }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item->nama_pemasok }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item->total_barang }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item->no_telepon }}</td>
                                     <td class="py-2 px-4 border-b">
                                         <div class="flex items-center justify-center space-x-4">

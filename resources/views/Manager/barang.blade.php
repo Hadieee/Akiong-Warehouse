@@ -33,7 +33,7 @@
                 <div class="flex flex-col items-center rounded w-full bg-white">
                     <hr><br>
                     <div class="w-full h-auto flex justify-end pr-5 mb-4">
-                        <a href="{{ route('admin.addBarang') }}"
+                        <a href="{{ route('manager.downloadDataBarang') }}"
                             class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
                             <i class="fas fa-print mr-2"></i> Print
                         </a>

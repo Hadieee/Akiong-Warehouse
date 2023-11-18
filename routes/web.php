@@ -106,6 +106,7 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
         Route::get('/manager/kategori/edit/{id}', 'edit')->name('manager.editKategori');
         Route::post('/manager/kategori/edit/{id}/action', 'update')->name('manager.updateKategori');
         Route::post('/manager/kategori/delete/{id}/action', 'delete')->name('manager.deleteKategori');
+        Route::get('/manager/kategori/download_excel', 'download_excel')->name('manager.downloadDataKategori');
     });
 
     Route::controller(PemasokController::class)->group(function () {
@@ -114,5 +115,10 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
         Route::get('/manager/pemasok/edit/{id}', 'edit')->name('manager.editPemasok');
         Route::post('/manager/pemasok/edit/{id}/action', 'update')->name('manager.updatePemasok');
         Route::post('/manager/pemasok/delete/{id}/action', 'delete')->name('manager.deletePemasok');
+        Route::get('/manager/pemasok/download_excel', 'download_excel')->name('manager.downloadDataPemasok');
+    });
+
+    Route::controller(BarangController::class)->group(function () {
+        Route::get('/manager/barang/download_excel', 'download_excel')->name('manager.downloadDataBarang');
     });
 });

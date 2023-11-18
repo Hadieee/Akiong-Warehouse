@@ -15,6 +15,7 @@
                                 <th class="py-2 px-4 border-b">No</th>
                                 <th class="py-2 px-4 border-b">ID Kategori</th>
                                 <th class="py-2 px-4 border-b">Nama Kategori</th>
+                                <th class="py-2 px-4 border-b">Jumlah Barang</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -23,6 +24,7 @@
                                     <td class="py-2 px-4 border-b">{{ $item->id }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item->id_kategori }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item->nama_kategori }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item->total_barang }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
