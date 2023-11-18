@@ -32,7 +32,7 @@
             <div class="h-full w-full m-4 p-8 bg-white rounded-lg drop-shadow-md">
                 <div class="flex flex-col items-center rounded w-full bg-white">
                     <div class="w-full h-auto flex items-center justify-between mb-4">
-                        <form action="{{ route('admin.searchbarangadmin', $item['id'])) }}" method="post" class="flex items-center">
+                        <form action="{{ route('admin.searchbarangadmin') }}" method="post" class="flex items-center">
                             @csrf
                             <input type="text" name="search" placeholder="Cari Nama Barang"
                                 class="px-2 py-1 text-lg border rounded-md">

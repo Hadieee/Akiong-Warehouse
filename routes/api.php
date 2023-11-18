@@ -25,6 +25,6 @@ Route::controller(ApiController::class)->group(function () {
     Route::post('admin/data/barang/edit/{id}', 'update');
     Route::post('admin/data/barang/hapus', 'destroy');
     Route::get('manager/data/barang', 'getBarang');
-    Route::post('/admin/data/search-barang', 'searchbarangadmin')->name('admin.searchbarangadmin');
-    Route::post('/manager/data/search-barang', 'searchbarangmanager')->name('manager.searchbarangmanager');
+    Route::post('/admin/data/search-barang', 'searchadmin');
+    Route::post('/manager/data/search-barang', 'searchmanager');
 });

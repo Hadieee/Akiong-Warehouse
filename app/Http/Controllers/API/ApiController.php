@@ -80,11 +80,11 @@ class ApiController extends Controller
         return response()->json($respon);
     }
 
-    public function searchbarangmanager(Request $request)
+    public function searchmanager(Request $request)
     {
         $search = $request->input('search');
-
         $barang = Barang::where('nama_barang', 'like', '%' . $search . '%')->get();
+        dd($search);
 
         $response = [
             'status' => 'success',
@@ -95,7 +95,7 @@ class ApiController extends Controller
         return response()->json($response);
     }
 
-    public function searchbarangadmin(Request $request)
+    public function searchadmin(Request $request)
     {
         $search = $request->input('search');
 
