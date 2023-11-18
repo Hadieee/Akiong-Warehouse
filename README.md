@@ -123,7 +123,59 @@ Berikut merupakan cara untuk menginstall webiste ini di device anda. sebelumnya 
 
 ## Documentation
 ### Landing Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/f1b0d000-ddc2-47d1-b2f8-003e636feb68" width="80%"> 
+</div>
 
+### Login Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/fba3acaf-071e-4950-bbd8-f63bab89b49c" width="80%"> 
+</div>
+
+### Register Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/a9712ffa-1b06-4109-8d17-0fa8b06a8dfb" width="80%"> 
+</div>
+
+### Dashboard Admin Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/ca144698-514a-49a3-b294-34b2095717b4" width="80%"> 
+</div>
+
+### Kategori Admin Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/dc25f38a-eb14-4948-95c7-9769e8c341b0" width="80%"> 
+</div>
+
+### Barang Admin Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/363dcebb-91d0-4a7b-97e0-e78b1af9ddb4" width="80%"> 
+</div>
+
+### Pemasok Admin Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/c4858866-6311-4783-bec6-bb2562a2c858" width="80%"> 
+</div>
+
+### Dashboard Manajer Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/0d2ad52e-d364-4170-8e48-e80e6a8c2635" width="80%"> 
+</div>
+
+### Katagori Manajer Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/108545c7-27f1-4d13-bfc9-a0f9d50ca0c2" width="80%"> 
+</div>
+
+### Barang Manajer Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/dadd52cd-5a08-48e6-b196-843c88c7e102" width="80%"> 
+</div>
+
+### Pemasok Manajer Page
+<div align="center">
+    <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/c3aae9bd-6bb5-4d80-9cd3-0c4cba89f488" width="80%"> 
+</div>
 
 
 [laravel-badge]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
