@@ -122,6 +122,48 @@ class BarangController extends Controller
         }
     }
 
+    public function searchbarangmanager(Request $request)
+    {
+        $search = $request->input('search');
+
+        $endpoint = env('BASE_ENV') . '/api/manager/data/barang/search';
+        $response = Http::asForm()->post($endpoint, ['search' => $search]);
+
+        $responseData = $response->json();
+
+        // Periksa apakah respons memiliki status dan pesan
+        if (isset($responseData['status']) && $responseData['status'] === 'success') {
+            $barang = $responseData['data'];
+
+            return view('manager.barang', compact('barang'));
+        } else {
+            // Handle kesalahan jika respons tidak sesuai
+            session()->flash('error', 'Gagal Melakukan Pencarian Barang.');
+            return redirect()->route('manager.barang');
+        }
+    }
+
+    public function searchbarangadmin(Request $request)
+    {
+        $search = $request->input('search');
+
+        $endpoint = env('BASE_ENV') . '/api/admin/data/barang/search';
+        $response = Http::asForm()->post($endpoint, ['search' => $search]);
+
+        $responseData = $response->json();
+
+        // Periksa apakah respons memiliki status dan pesan
+        if (isset($responseData['status']) && $responseData['status'] === 'success') {
+            $barang = $responseData['data'];
+
+            return view('admin.barang', compact('barang'));
+        } else {
+            // Handle kesalahan jika respons tidak sesuai
+            session()->flash('error', 'Gagal Melakukan Pencarian Barang.');
+            return redirect()->route('admin.barang');
+        }
+    }
+
     public function download_excel()
     {
         // Retrieve data from the database
@@ -143,23 +185,5 @@ class BarangController extends Controller
         ];
         // Output content to the browser
         return response()->make($content, 200, $headers);
-    }
-
-    public function searchbarangmanager(Request $request)
-    {
-        $search = $request->input('search');
-
-        $barang = Barang::where('nama_barang', 'like', '%' . $search . '%')->get();
-
-        return view('manager.barang', compact('barang'));
-    }
-
-    public function searchbarangadmin(Request $request)
-    {
-        $search = $request->input('search');
-
-        $barang = Barang::where('nama_barang', 'like', '%' . $search . '%')->get();
-
-        return view('admin.barang', compact('barang'));
     }
 }

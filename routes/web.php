@@ -68,7 +68,7 @@ Route::middleware('auth', 'checkRole:admin')->group(function () {
         Route::get('/admin/barang/edit/{id}', 'edit')->name('admin.editBarang');
         Route::post('/admin/barang/edit/{id}/action', 'update')->name('admin.updateBarang');
         Route::post('/admin/barang/delete/{id}/action', 'delete')->name('admin.deleteBarang');
-        Route::get('/admin/search-barang', 'searchbarangadmin')->name('admin.searchbarangadmin');
+        Route::post('/admin/search-barang/action', 'searchbarangadmin')->name('admin.searchbarangadmin');
     });
 
     Route::controller(PemasokController::class)->group(function () {
@@ -127,7 +127,7 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
     Route::controller(BarangController::class)->group(function () {
         Route::get('/manager/barang','index')->name('manager.barang');
         Route::get('/manager/barang/download_excel', 'download_excel')->name('manager.downloadDataBarang');
-        Route::get('/manager/search-barang', 'searchbarangmanager')->name('manager.searchbarangmanager');
+        Route::post('/manager/search-barang/action', 'searchbarangmanager')->name('manager.searchbarangmanager');
     });
 
 });

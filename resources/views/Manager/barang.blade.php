@@ -31,14 +31,18 @@
 
             <div class="h-full w-full m-4 p-8 bg-white rounded-lg drop-shadow-md overflow-auto">
                 <div class="flex flex-col items-center rounded w-full bg-white">
-                    <hr><br>
-                    <div class="w-full h-auto flex justify-end pr-5 mb-4">
-                        <form action="{{ route('manager.searchbarangmanager') }}" method="get" class="flex items-center">
-                            <input type="text" name="search" placeholder="Cari berdasarkan nama" class="px-2 py-1 border rounded-md">
-                            <button type="submit" class="fas fa-search px-4 py-2 ml-2 bg-blue-500 text-white rounded-md">Cari</button>
+                    <div class="w-full h-auto flex items-center justify-between mb-4">
+                        <form action="{{ route('manager.searchbarangmanager') }}" method="post" class="flex items-center">
+                            @csrf
+                            <input type="text" name="search" placeholder="Cari Nama Barang"
+                                class="px-2 py-1 text-lg border rounded-md">
+                            <button type="submit"
+                                class="bg-blue-500 text-white px-4 py-2 rounded-md ml-2 hover:bg-blue-600">
+                                <i class="fas fa-search"></i> Cari
+                            </button>
                         </form>
                         <a href="{{ route('manager.downloadDataBarang') }}"
-                            class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
+                            class="bg-green-600 text-white px-4 py-2 rounded-md flex items-center hover:bg-green-700">
                             <i class="fas fa-print mr-2"></i> Print
                         </a>
                     </div>
@@ -57,7 +61,7 @@
                             @php $i=1 @endphp
                             @foreach ($barang['data'] as $item)
                                 <tr>
-                                    <td class="py-2 px-4 border-b">{{ $i }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $i++ }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item['id_barang'] }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item['kategori']['nama_kategori'] }}</td>
                                     <td class="py-2 px-4 border-b">{{ $item['pemasok']['nama_pemasok'] }}</td>

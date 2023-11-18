@@ -59,7 +59,7 @@ class ApiController extends Controller
             'nama_barang' => $request->nama_barang,
             'stok_barang' => $request->stok_barang
         ]);
-        
+
         $respon = [
             'status' => 'success',
             'message' => 'Data Berhasil Diubah',
@@ -78,5 +78,35 @@ class ApiController extends Controller
             'message' => 'Data Berhasil dihapus',
         ];
         return response()->json($respon);
+    }
+
+    public function searchbarangmanager(Request $request)
+    {
+        $search = $request->input('search');
+
+        $barang = Barang::where('nama_barang', 'like', '%' . $search . '%')->get();
+
+        $response = [
+            'status' => 'success',
+            'message' => 'Data Berhasil Ditemukan',
+            'data' => $barang,
+        ];
+
+        return response()->json($response);
+    }
+
+    public function searchbarangadmin(Request $request)
+    {
+        $search = $request->input('search');
+
+        $barang = Barang::where('nama_barang', 'like', '%' . $search . '%')->get();
+
+        $response = [
+            'status' => 'success',
+            'message' => 'Data Berhasil Ditemukan',
+            'data' => $barang,
+        ];
+
+        return response()->json($response);
     }
 }

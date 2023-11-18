@@ -72,13 +72,6 @@ class KategoriController extends Controller
         return redirect()->route('manager.kategori');
     }
 
-    public function index()
-    {
-        $kategori = Kategori::withCount('kategori')->get();
-
-        return view('manager.kategori', compact('kategori'));
-    }
-
     public function download_excel()
     {
         // Retrieve data from the database
@@ -103,21 +96,20 @@ class KategoriController extends Controller
     }
 
     public function searchKategorimanager(Request $request)
-{
-    $search = $request->input('search');
+    {
+        $search = $request->input('search');
 
-    $kategori = Kategori::where('nama_kategori', 'like', '%' . $search . '%')->get();
+        $kategori = Kategori::where('nama_kategori', 'like', '%' . $search . '%')->get();
 
-    return view('manager.kategori', compact('kategori'));
-}
+        return view('manager.kategori', compact('kategori'));
+    }
 
-public function searchKategoriadmin(Request $request)
-{
-    $search = $request->input('search');
+    public function searchKategoriadmin(Request $request)
+    {
+        $search = $request->input('search');
 
-    $kategori = Kategori::where('nama_kategori', 'like', '%' . $search . '%')->get();
+        $kategori = Kategori::where('nama_kategori', 'like', '%' . $search . '%')->get();
 
-    return view('admin.kategori', compact('kategori'));
-}
-
+        return view('admin.kategori', compact('kategori'));
+    }
 }
