@@ -50,14 +50,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($barang as $index => $item)
+                            @php $i=1 @endphp
+                            @foreach ($barang['data'] as $item)
                                 <tr>
-                                    <td class="py-2 px-4 border-b">{{ ++$index }}</td>
-                                    <td class="py-2 px-4 border-b">{{ $item->id_barang }}</td>
-                                    <td class="py-2 px-4 border-b">{{ $item->kategori->nama_kategori }}</td>
-                                    <td class="py-2 px-4 border-b">{{ $item->pemasok->nama_pemasok }}</td>
-                                    <td class="py-2 px-4 border-b">{{ $item->nama_barang }}</td>
-                                    <td class="py-2 px-4 border-b">{{ $item->stok_barang }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $i }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['id_barang'] }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['kategori']['nama_kategori'] }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['pemasok']['nama_pemasok'] }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['nama_barang'] }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $item['stok_barang'] }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

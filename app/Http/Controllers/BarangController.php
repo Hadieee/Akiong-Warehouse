@@ -11,6 +11,32 @@ use Illuminate\Support\Facades\Http;
 
 class BarangController extends Controller
 {
+    public function index()
+    {
+        // Check user role
+        $userRole = auth()->user()->role;
+
+        // Set endpoint based on user role
+        if ($userRole == 'admin') {
+            $endpoint = env('BASE_ENV') . '/api/admin/data/barang';
+            $data = Http::get($endpoint);
+
+            return view('admin.barang', [
+                'barang' => $data
+            ]);
+        } elseif ($userRole == 'manager') {
+            $endpoint = env('BASE_ENV') . '/api/manager/data/barang';
+            $data = Http::get($endpoint);
+
+            return view('manager.barang', [
+                'barang' => $data
+            ]);
+        } else {
+            abort(403, 'Unauthorized action.');
+        }
+    }
+
+
     public function tambah()
     {
         return view('admin.crud.addBarang', [
@@ -21,6 +47,8 @@ class BarangController extends Controller
 
     public function store(Request $request)
     {
+        $endpoint = env('BASE_ENV') . '/api/admin/data/barang/tambah';
+
         // Validate Input
         $validateData = $request->validate([
             'id_barang' => 'required|string|max:4',
@@ -30,10 +58,11 @@ class BarangController extends Controller
             'stok_barang' => 'required|Integer'
         ]);
 
-        Barang::create($validateData);
+        $response = Http::asForm()->post($endpoint, $validateData);
+
 
         session()->flash('success', 'Data Barang Berhasil Ditambah!');
-        return redirect()->route('admin.barang');
+        return redirect()->route('admin.barang')->with($response['status'], $response['message']);
     }
 
     public function edit($id)
@@ -47,7 +76,9 @@ class BarangController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $endpoint = env('BASE_ENV') . '/api/admin/data/barang/edit/' . $id;
+
+        $validateData = $request->validate([
             'id_barang' => 'required|string|max:4',
             'kategori_id' => 'required',
             'pemasok_id' => 'required',
@@ -55,38 +86,20 @@ class BarangController extends Controller
             'stok_barang' => 'required|Integer'
         ]);
 
-        $barang = Barang::findOrFail($id);
+        $response = Http::asForm()->post($endpoint, $validateData);
 
-        $barang->id_barang = $request->id_barang;
-        $barang->kategori_id = $request->kategori_id;
-        $barang->pemasok_id = $request->pemasok_id;
-        $barang->nama_barang = $request->nama_barang;
-        $barang->stok_barang = $request->stok_barang;
-
-        // Simpan perubahan
-        $barang->save();
-
-        session()->flash('success', 'Data Barang Berhasil Diubah!');
-        return redirect()->route('admin.barang');
+        session()->flash('success', 'Data Barang Berhasil Diedit!');
+        return redirect()->route('admin.barang')->with($response['status'], $response['message']);
     }
 
     public function delete($id)
     {
-        $barang = Barang::findOrFail($id);
+        $endpoint = env('BASE_ENV') . '/api/admin/data/barang/hapus';
 
-        $barang->delete();
+        $response = Http::asForm()->post($endpoint, ['id' => $id]);
 
         session()->flash('success', 'Data Barang Berhasil Dihapus!');
-        return redirect()->route('admin.barang');
-    }
-
-    public function index()
-    {
-        $endpoint = env('BASE_ENV') . '/api/admin/data/barang';
-        $data = Http::get($endpoint);
-        return view('admin.barang', [
-            'barang' => $data
-        ]);
+        return redirect()->route('admin.barang')->with($response['status'], $response['message']);
     }
 
     public function download_excel()

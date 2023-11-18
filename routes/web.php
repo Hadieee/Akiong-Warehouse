@@ -50,13 +50,6 @@ Route::middleware('auth', 'checkRole:admin')->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
-    Route::get('/admin/barang', function () {
-        return view('admin.barang', [
-            'barang' => Barang::all(),
-            'kategori' => Kategori::all(),
-            'pemasok' => Pemasok::all(),
-        ]);
-    })->name('admin.barang');
     Route::get('/admin/pemasok', function () {
         return view('admin.pemasok', [
             'pemasok' => Pemasok::all(),
@@ -69,6 +62,7 @@ Route::middleware('auth', 'checkRole:admin')->group(function () {
     })->name('admin.kategori');
 
     Route::controller(BarangController::class)->group(function () {
+        Route::get('/admin/barang','index')->name('admin.barang');
         Route::get('/admin/barang/tambah', 'tambah')->name('admin.addBarang');
         Route::post('/admin/barang/tambah/action', 'store')->name('admin.storeBarang');
         Route::get('/admin/barang/edit/{id}', 'edit')->name('admin.editBarang');
@@ -119,6 +113,7 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
     });
 
     Route::controller(BarangController::class)->group(function () {
+        Route::get('/manager/barang','index')->name('manager.barang');
         Route::get('/manager/barang/download_excel', 'download_excel')->name('manager.downloadDataBarang');
     });
 });
