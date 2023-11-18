@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::controller(ApiController::class)->group(function () {
     Route::get('admin/data/barang','getBarang');
-    Route::post('admin/data/barang','createBarang');
+    Route::post('admin/data/barang/tambah','createBarang');
     Route::post('admin/data/barang/edit/{id}', 'update');
     Route::post('admin/data/barang/hapus', 'destroy');
     Route::get('manager/data/barang','getBarang');

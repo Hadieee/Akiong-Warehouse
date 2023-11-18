@@ -60,9 +60,15 @@ class BarangController extends Controller
 
         $response = Http::asForm()->post($endpoint, $validateData);
 
-
-        session()->flash('success', 'Data Barang Berhasil Ditambah!');
-        return redirect()->route('admin.barang')->with($response['status'], $response['message']);
+        // Periksa apakah respons memiliki status dan pesan
+        if (isset($response['status']) && isset($response['message'])) {
+            session()->flash('success', 'Data Barang Berhasil Ditambah!');
+            return redirect()->route('admin.barang')->with($response['status'], $response['message']);
+        } else {
+            // Handle kesalahan jika respons tidak sesuai
+            session()->flash('error', 'Gagal Menambahkan Data Barang.');
+            return redirect()->route('admin.barang');
+        }
     }
 
     public function edit($id)
@@ -88,8 +94,15 @@ class BarangController extends Controller
 
         $response = Http::asForm()->post($endpoint, $validateData);
 
-        session()->flash('success', 'Data Barang Berhasil Diedit!');
-        return redirect()->route('admin.barang')->with($response['status'], $response['message']);
+        // Periksa apakah respons memiliki status dan pesan
+        if (isset($response['status']) && isset($response['message'])) {
+            session()->flash('success', 'Data Barang Berhasil Diedit!');
+            return redirect()->route('admin.barang')->with($response['status'], $response['message']);
+        } else {
+            // Handle kesalahan jika respons tidak sesuai
+            session()->flash('error', 'Gagal Mengedit Data Barang.');
+            return redirect()->route('admin.barang');
+        }
     }
 
     public function delete($id)
@@ -98,8 +111,15 @@ class BarangController extends Controller
 
         $response = Http::asForm()->post($endpoint, ['id' => $id]);
 
-        session()->flash('success', 'Data Barang Berhasil Dihapus!');
-        return redirect()->route('admin.barang')->with($response['status'], $response['message']);
+        // Periksa apakah respons memiliki status dan pesan
+        if (isset($response['status']) && isset($response['message'])) {
+            session()->flash('success', 'Data Barang Berhasil Dihapus!');
+            return redirect()->route('admin.barang')->with($response['status'], $response['message']);
+        } else {
+            // Handle kesalahan jika respons tidak sesuai
+            session()->flash('error', 'Gagal Menghapus Data Barang.');
+            return redirect()->route('admin.barang');
+        }
     }
 
     public function download_excel()

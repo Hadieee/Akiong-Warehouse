@@ -30,11 +30,13 @@ class ApiController extends Controller
         ]);
 
         $barang = Barang::create($validateData);
+
         $respon = [
             'status' => 'success',
             'message' => 'Data Berhasil ditambah',
             'data' => $barang,
         ];
+
         return response()->json($respon);
     }
 
@@ -48,7 +50,7 @@ class ApiController extends Controller
             'stok_barang' => 'required|Integer'
         ]);
 
-        $barang = barang::findOrFail($id);
+        $barang = Barang::findOrFail($id);
 
         $barang->update([
             'id_barang' => $request->id_barang,
@@ -57,10 +59,11 @@ class ApiController extends Controller
             'nama_barang' => $request->nama_barang,
             'stok_barang' => $request->stok_barang
         ]);
+        
         $respon = [
             'status' => 'success',
             'message' => 'Data Berhasil Diubah',
-            'data' => $barang,
+            'data' => $barang
         ];
         return response()->json($respon);
     }

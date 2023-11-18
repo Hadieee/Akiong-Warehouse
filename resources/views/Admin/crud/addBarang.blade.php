@@ -21,7 +21,7 @@
                             <label for="id_barang" class="block mb-2 text-sm font-medium text-white">ID
                                 Barang</label>
                             <input type="text" name="id_barang"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 "
+                                class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 placeholder="id barang..." required>
                         </div>
                         <div>
@@ -29,7 +29,7 @@
                                 class="block mb-2 text-sm font-medium text-white ">Nama
                                 Barang</label>
                             <input type="text" name="nama_barang" placeholder="nama barang..."
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 "
+                                class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 required>
                         </div>
                         <div>
@@ -37,14 +37,14 @@
                                 class="block mb-2 text-sm font-medium text-white">Stok
                                 Barang</label>
                             <input type="number" name="stok_barang" placeholder="stok barang..."
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                class="bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 required>
                         </div>
                         <div>
                             <label for="kategori_id"
                                 class="block mb-2 text-sm font-medium text-white">Kategori Barang</label>
                             <select name="kategori_id"
-                                class="w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                class="w-full p-2.5 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                 <option value="" disabled selected>Kategori Barang...</option>
                                 @foreach ($kategoris as $kategori)
                                     <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
@@ -55,7 +55,7 @@
                             <label for="pemasok_id"
                                 class="block mb-2 text-sm font-medium text-white">Pemasok Barang</label>
                             <select name="pemasok_id"
-                                class="w-full p-2.5 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                class="w-full p-2.5 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                                 <option value="" disabled selected>Pemasok Barang...</option>
                                 @foreach ($pemasoks as $pemasok)
                                     <option value="{{ $pemasok->id }}">{{ $pemasok->nama_pemasok }}</option>
