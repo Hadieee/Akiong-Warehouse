@@ -1,8 +1,3 @@
-<!-- inspiring README PROJECTS -->
-
-<!-- https://github.com/ma-shamshiri/Spam-Detector/blob/master/README.md -->
-<!-- https://github.com/aregtech/areg-sdk/blob/master/README.md -->
-
 <a name="readme-top"></a>
 <div align="center">
 <!-- Logo Aplikasi -->
@@ -55,39 +50,42 @@
 <div align="center">
     <img src="https://github.com/Hadieee/Akiong-Warehouse/assets/92103598/6cf27b6b-d6f5-4170-bc29-da0067641005" width="100%"> 
 </div>
+
+<div align="justify">
 Akiong Warehouse merupakan website yang dibuat untuk memenuhi Project Akhir dari Pratikum Framework, Akiong Warehouse merupakan judul dari website inventori barang yang dapat memudahkan pengguna untuk Manajemen stok barang meraka dan website ini juga sangat berguna untuk manajer agar dapat melihat barang apa saja yang masuk dan keluar. Akiong Warehouse dilengkapi dengan fitur registrasi dan login untuk admin yang membuat admin dapat membuat sendiri akun mereka tanpa perlu bantuan dari manajer. selain dari itu dengan adanya website ini admin dapat melakukan manajemen barang dengan terstruktur. sedangkan untuk manajer dapat manajemen pemasok barang dan membuat kategori barang agar membantu admin dalam melakukan manajemen barang.
+</div>
 
 ## Built With
-Website Akiong Warehouse dibikin menggunakan:
+Website Akiong Warehouse dibuat menggunakan framework:
 * [![Laravel][laravel-badge]][laravel-url]
 * [![Tailwind CSS][tailwind-badge]][tailwind-url]
 
 ## Getting Started
 
 ### Installation 
-Berikut merupakan cara untuk menginstall webiste ini di divice anda. sebelumnya harap install dan mempersiapkan composer anda terlebih dahulu.
+Berikut merupakan cara untuk menginstall webiste ini di device anda. sebelumnya harap install dan mempersiapkan composer anda terlebih dahulu.
 
-1. Clone the Repo
+1. Clone The Repo
     ```sh
    git clone https://github.com/Hadieee/Akiong-Warehouse.git
    ```
-2. Install Composer Kedalam Project yang telah di clone
+2. Install Composer Kedalam Project Yang Telah Di Clone
    ```sh
    composer install
    ```
-3. Install NPM packages untuk tailwind css y
+3. Install NPM Packages Untuk Tailwind CSS
    ```sh
    npm install
    ```
-4. Simpan konfigurasi lingkungan proyek, seperti pengaturan database, pengaturan lingkungan (environment), dan parameter konfigurasi lainnya. 
+4. Simpan Konfigurasi Enviroment Proyek, Seperti Pengaturan Database, pengaturan Environment, dan Parameter Konfigurasi Lainnya. 
    ```sh
    cp .env.example .env
    ```
-5. untuk menghasilkan kunci aplikasi Laravel yang diperlukan untuk enkripsi data dan keamanan aplikasi Anda.
+5. Untuk Menghasilkan Kunci Aplikasi Laravel Yang Diperlukan Untuk Enkripsi Data Dan Keamanan Aplikasi Anda.
     ```sh
     php artisan key:generate
    ```
-6. untuk menambahkan data ke database secara otomatis dengan menggunakan factory.
+6. Untuk Migrasi Database Serta Menambahkan Data Ke Database Secara Otomatis Dengan Menggunakan Factory.
     ```sh
     php artisan migrate:fresh --seed
    ```
