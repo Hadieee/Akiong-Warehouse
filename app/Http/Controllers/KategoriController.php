@@ -101,4 +101,23 @@ class KategoriController extends Controller
         // Output content to the browser
         return response()->make($content, 200, $headers);
     }
+
+    public function searchKategorimanager(Request $request)
+{
+    $search = $request->input('search');
+
+    $kategori = Kategori::where('nama_kategori', 'like', '%' . $search . '%')->get();
+
+    return view('manager.kategori', compact('kategori'));
+}
+
+public function searchKategoriadmin(Request $request)
+{
+    $search = $request->input('search');
+
+    $kategori = Kategori::where('nama_kategori', 'like', '%' . $search . '%')->get();
+
+    return view('admin.kategori', compact('kategori'));
+}
+
 }

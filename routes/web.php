@@ -68,6 +68,15 @@ Route::middleware('auth', 'checkRole:admin')->group(function () {
         Route::get('/admin/barang/edit/{id}', 'edit')->name('admin.editBarang');
         Route::post('/admin/barang/edit/{id}/action', 'update')->name('admin.updateBarang');
         Route::post('/admin/barang/delete/{id}/action', 'delete')->name('admin.deleteBarang');
+        Route::get('/admin/search-barang', 'searchbarangadmin')->name('admin.searchbarangadmin');
+    });
+
+    Route::controller(PemasokController::class)->group(function () {
+        Route::get('/admin/search-pemasok', 'searchpemasokadmin')->name('admin.searchpemasokadmin');
+    });
+
+    Route::controller(KategoriController::class)->group(function () {
+        Route::get('/admin/search-kategori', 'searchkategoriadmin')->name('admin.searchkategoriadmin');
     });
 });
 
@@ -94,6 +103,7 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
         ]);
     })->name('manager.kategori');
 
+
     Route::controller(KategoriController::class)->group(function () {
         Route::get('/manager/kategori/tambah', 'tambah')->name('manager.addKategori');
         Route::post('/manager/kategori/tambah/action', 'store')->name('manager.storeKategori');
@@ -101,6 +111,7 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
         Route::post('/manager/kategori/edit/{id}/action', 'update')->name('manager.updateKategori');
         Route::post('/manager/kategori/delete/{id}/action', 'delete')->name('manager.deleteKategori');
         Route::get('/manager/kategori/download_excel', 'download_excel')->name('manager.downloadDataKategori');
+        Route::get('/manager/search-kategori', 'searchKategorimanager')->name('manager.searchKategorimanager');
     });
 
     Route::controller(PemasokController::class)->group(function () {
@@ -110,10 +121,13 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
         Route::post('/manager/pemasok/edit/{id}/action', 'update')->name('manager.updatePemasok');
         Route::post('/manager/pemasok/delete/{id}/action', 'delete')->name('manager.deletePemasok');
         Route::get('/manager/pemasok/download_excel', 'download_excel')->name('manager.downloadDataPemasok');
+        Route::get('/manager/search-pemasok', 'searchpemasokmanager')->name('manager.searchpemasokmanager');
     });
 
     Route::controller(BarangController::class)->group(function () {
         Route::get('/manager/barang','index')->name('manager.barang');
         Route::get('/manager/barang/download_excel', 'download_excel')->name('manager.downloadDataBarang');
+        Route::get('/manager/search-barang', 'searchbarangmanager')->name('manager.searchbarangmanager');
     });
+
 });

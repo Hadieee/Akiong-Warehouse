@@ -144,4 +144,22 @@ class BarangController extends Controller
         // Output content to the browser
         return response()->make($content, 200, $headers);
     }
+
+    public function searchbarangmanager(Request $request)
+    {
+        $search = $request->input('search');
+
+        $barang = Barang::where('nama_barang', 'like', '%' . $search . '%')->get();
+
+        return view('manager.barang', compact('barang'));
+    }
+
+    public function searchbarangadmin(Request $request)
+    {
+        $search = $request->input('search');
+
+        $barang = Barang::where('nama_barang', 'like', '%' . $search . '%')->get();
+
+        return view('admin.barang', compact('barang'));
+    }
 }

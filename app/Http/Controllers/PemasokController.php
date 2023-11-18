@@ -96,4 +96,22 @@ class PemasokController extends Controller
         // Output content to the browser
         return response()->make($content, 200, $headers);
     }
+
+    public function searchpemasokmanager(Request $request)
+    {
+        $search = $request->input('search');
+
+        $pemasok = Pemasok::where('nama_pemasok', 'like', '%' . $search . '%')->get();
+
+        return view('manager.pemasok', compact('pemasok'));
+    }
+
+    public function searchpemasokadmin(Request $request)
+    {
+        $search = $request->input('search');
+
+        $pemasok = Pemasok::where('nama_pemasok', 'like', '%' . $search . '%')->get();
+
+        return view('admin.pemasok', compact('pemasok'));
+    }
 }

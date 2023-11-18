@@ -34,6 +34,10 @@
                     <hr><br>
                     <div class="w-full h-auto flex justify-end pr-5 mb-4">
                         <div class="flex space-x-4">
+                            <form action="{{ route('manager.searchpemasokmanager') }}" method="get" class="flex items-center">
+                                <input type="text" name="search" placeholder="Cari berdasarkan nama" class="px-2 py-1 border rounded-md">
+                                <button type="submit" class="fas fa-search px-4 py-2 ml-2 bg-blue-500 text-white rounded-md">Cari</button>
+                            </form>
                             <a href="{{ route('manager.addPemasok') }}"
                                 class="px-4 py-2 bg-green-600 rounded-md text text-white hover:bg-green-700 flex items-center">
                                 <i class="fas fa-plus mr-2"></i> Tambah
