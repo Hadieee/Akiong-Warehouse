@@ -8,24 +8,7 @@
     <div class="relative">
         <img class="w-full h-full object-cover" src="{{ asset('assets/bg.jpg') }}" alt="Background Image">
         <div class="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-gray-200">
-            @if (session('error'))
-                <div class="w-full relative mb-6">
-                    <div class="p-2 rounded-sm bg-red-100 ring-1 ring-red-500">
-                        <p class="text-red-500">
-                            {{ session('error') }}
-                        </p>
-                    </div>
-                </div>
-            @endif
-            @if (session('success'))
-                <div class="w-full relative mb-6">
-                    <div class="p-2 rounded-sm bg-green-100 ring-1 ring-green-500">
-                        <p class="text-green-500">
-                            {{ session('success') }}
-                        </p>
-                    </div>
-                </div>
-            @endif
+
 
             <form action="{{ route('login.action') }}" method="post" class="w-full flex flex-col items-start">
                 @csrf
@@ -41,6 +24,27 @@
                         <p class="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">
                             Welcome back!
                         </p>
+
+                        <div class="mt-6">
+                            @if (session('error'))
+                        <div class="w-full relative mb-6">
+                            <div class="p-2 rounded-sm bg-red-100 ring-1 ring-red-500">
+                                <p class="text-red-500">
+                                    {{ session('error') }}
+                                </p>
+                            </div>
+                        </div>
+                    @endif
+                    @if (session('success'))
+                        <div class="w-full relative mb-6">
+                            <div class="p-2 rounded-sm bg-green-100 ring-1 ring-green-500">
+                                <p class="text-green-500">
+                                    {{ session('success') }}
+                                </p>
+                            </div>
+                        </div>
+                    @endif
+                        </div>
 
                         <div class="mt-4">
                             <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Username</label>
