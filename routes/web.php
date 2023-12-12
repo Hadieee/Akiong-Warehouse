@@ -116,7 +116,6 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
     });
 
     Route::controller(PemasokController::class)->group(function () {
-        Route::get('/dashboard', [PemasokController::class, 'dashboard'])->name('manager.dashboard');
         Route::get('/manager/pemasok/tambah', 'tambah')->name('manager.addPemasok');
         Route::post('/manager/pemasok/tambah/action', 'store')->name('manager.storePemasok');
         Route::get('/manager/pemasok/edit/{id}', 'edit')->name('manager.editPemasok');
