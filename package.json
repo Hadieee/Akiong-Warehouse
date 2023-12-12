@@ -4,7 +4,7 @@
     "scripts": {
         "dev": "concurrently npm:watch:*",
         "watch:vite": "vite",
-        "watch:artisan" : "php artisan serve",
+        "watch:artisan": "php artisan serve",
         "build": "vite build"
     },
     "devDependencies": {
@@ -15,5 +15,8 @@
         "postcss": "^8.4.31",
         "tailwindcss": "^3.3.5",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "chart.js": "^4.4.1"
     }
 }

@@ -73,6 +73,82 @@
                 <div class="flex-grow"></div> <!-- Menambahkan elemen flex-grow untuk memberikan ruang di sebelah kanan -->
             </div>
         </div>
+        <div class="flex">
+            <div class="flex-1 h-[700px] mx-4 bg-gray-800 rounded p-10">
+                <h2 class="text-white text-lg font-semibold mb-4">Barang Kategori</h2>
+                <canvas id="chartBarangByKategori" width="400" height="400"></canvas>
+            </div>
+
+            <div class="flex-1 h-[700px] mx-4 bg-gray-800 rounded p-10">
+                <h2 class="text-white text-lg font-semibold mb-4">Barang Pemasok</h2>
+                <canvas id="chartBarangByPemasok" width="400" height="400"></canvas>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            // Chart 1
+            var ctxBarangByKategori = document.getElementById('chartBarangByKategori').getContext('2d');
+            var chartBarangByKategori = new Chart(ctxBarangByKategori, {
+                type: 'pie',
+                data: {
+                    labels: {!! json_encode($kategoriLabels) !!},
+                    datasets: [{
+                        data: {!! json_encode($barangCountByKategori) !!},
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.8)',
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(255, 206, 86, 0.8)',
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(153, 102, 255, 0.8)',
+                            'rgba(255, 159, 64, 0.8)'
+                            // Tambahkan warna sesuai dengan jumlah label yang Anda miliki
+                        ],
+                    }],
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white' // Ganti dengan warna yang diinginkan
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Chart 2
+            var ctxBarangByPemasok = document.getElementById('chartBarangByPemasok').getContext('2d');
+            var chartBarangByPemasok = new Chart(ctxBarangByPemasok, {
+                type: 'pie',
+                data: {
+                    labels: {!! json_encode($pemasokLabels) !!},
+                    datasets: [{
+                        data: {!! json_encode($barangCountByPemasok) !!},
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.8)',
+                            'rgba(54, 162, 235, 0.8)',
+                            'rgba(255, 206, 86, 0.8)',
+                            'rgba(75, 192, 192, 0.8)',
+                            'rgba(153, 102, 255, 0.8)',
+                            'rgba(255, 159, 64, 0.8)'
+                            // Tambahkan warna sesuai dengan jumlah label yang Anda miliki
+                        ],
+                    }],
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'white' // Ganti dengan warna yang diinginkan
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        </script>
         <div class="flex items-center justify-center h-screen py-10 my-8 rounded bg-gray-800">
             <div class="flex flex-col items-center justify-center rounded w-full h-full my-20 mx-12 bg-white">
                 <p class="text-5xl text-gray-500 mb-7">

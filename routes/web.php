@@ -105,6 +105,7 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
 
 
     Route::controller(KategoriController::class)->group(function () {
+        Route::get('/manager/dashboard', [KategoriController::class, 'dashboard'])->name('manager.dashboard');
         Route::get('/manager/kategori/tambah', 'tambah')->name('manager.addKategori');
         Route::post('/manager/kategori/tambah/action', 'store')->name('manager.storeKategori');
         Route::get('/manager/kategori/edit/{id}', 'edit')->name('manager.editKategori');
@@ -115,6 +116,7 @@ Route::middleware('auth', 'checkRole:manager')->group(function () {
     });
 
     Route::controller(PemasokController::class)->group(function () {
+        Route::get('/dashboard', [PemasokController::class, 'dashboard'])->name('manager.dashboard');
         Route::get('/manager/pemasok/tambah', 'tambah')->name('manager.addPemasok');
         Route::post('/manager/pemasok/tambah/action', 'store')->name('manager.storePemasok');
         Route::get('/manager/pemasok/edit/{id}', 'edit')->name('manager.editPemasok');

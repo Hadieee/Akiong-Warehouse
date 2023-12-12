@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
+use App\Models\Pemasok;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Barang;
 
 class KategoriController extends Controller
 {
@@ -112,4 +113,26 @@ class KategoriController extends Controller
 
         return view('admin.kategori', compact('kategori'));
     }
+
+    public function dashboard()
+{
+    $kategoriLabels = Kategori::pluck('nama_kategori');
+    $kategoriData = Kategori::withCount('barang')->get()->pluck('barang_count');
+    $barangCountByKategori = $kategoriData;
+
+    $pemasokLabels = Pemasok::pluck('nama_pemasok');
+    $pemasokData = Pemasok::withCount('barang')->get()->pluck('barang_count');
+    $barangCountByPemasok = $pemasokData;
+
+    return view('manager.dashboard', [
+        'kategoriLabels' => $kategoriLabels,
+        'kategoriData' => $kategoriData,
+        'barangCountByKategori' => $barangCountByKategori,
+        'pemasokLabels' => $pemasokLabels,
+        'barangCountByPemasok' => $barangCountByPemasok,
+    ]);
+}
+
+
+
 }
